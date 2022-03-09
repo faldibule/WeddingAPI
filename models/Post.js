@@ -10,7 +10,13 @@ const postSchema = new schema({
     },
     date: {
         type: Date
-    }
+    },
+    comments: [
+        {
+            type: schema.Types.ObjectId,
+            ref: "Comment"
+        },
+    ]
 })
 
 const Post = mongoose.model('Post', postSchema)

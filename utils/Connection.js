@@ -5,7 +5,5 @@ dotenv.config()
 mongoose.connect(process.env.MONGO_DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}, (err) => {
-    console.log(err)
 })
 
