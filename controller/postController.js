@@ -29,7 +29,7 @@ const postController = {
             if(insert){
                 res.json({
                     message: 'Berhasil',
-                    data
+                    data: insert[0]
                 })
             }
         } catch (err) {
@@ -57,6 +57,21 @@ const postController = {
             
         } catch (err) {
             console.log(err)
+        }
+    },
+
+    clearData: async (req, res) => {
+        try {
+            const cek1 = await Comment.deleteMany({})
+            const cek2 = await Post.deleteMany({})
+            if(cek1 && cek2){
+                return res.status(200).json({
+                    message: 'Clear Database'
+                })
+            }
+            
+        } catch (error) {
+            console.log(error)
         }
     }
 }
