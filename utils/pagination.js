@@ -8,6 +8,7 @@ const pagination = {
         result.currentPage = page;
         result.message = 'Data'
         result.totalPage = Math.ceil(await model.countDocuments() / limit)
+        result.totalData = await model.countDocuments()
         result.data = await model.find()
             .skip(startIndex)
             .limit(limit)
